@@ -2,11 +2,18 @@
 
 //adding EXPRESS node to handle HTTP request *ERROR* Express spelled WRONG
 const express = require("express");
+//adding CORS middleware to translate between localhost:8888 - Backend AND localhost:3000 - Frontend
+const cors = require('cors')
+
 //REQUIRE - import the data from students.json file (Acces to Student Data)
 const studentData = require("./studentData.json");
 
 //create an instance of EXPRESS in our app
 const app = express();
+
+//SetUp Middleware
+// Functions that will TRANSLATE REQ and RES
+app.use(cors())
 
 //Define our ROUTES
 // - Health Check ROUTE : GET Method = '/' (Home) Path
